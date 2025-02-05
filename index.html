@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet icon" href="todo.png" type="todo.png">
-    <link rel="stylesheet" href="index.css">
-    <title>todo</title>
-</head>
-<body>
-    <div class="header">
-        <h1 class="title">Панель задач</h1> 
-        <input id="inputField" type="text" placeholder="Добавить задачу"><button id="addTodo">+</button>
-        <div class="to-tos" id="toDoContainer">
-        </div>
-    </div>
-    <script src="index.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>TODO List</title>
+	</head>
+	<body>
+		<div class="todo">
+			<h1 class="todo__title">Панель задач</h1>
+			<div class="todo__input-container">
+				<input
+					id="inputField"
+					class="todo__input"
+					type="text"
+					placeholder="Добавить задачу"
+				/>
+				<button id="addTodo" class="todo__button" title="Добавить задачу">
+					+
+				</button>
+			</div>
+			<div id="toDoContainer" class="todo__list"></div>
+			<button
+				id="deleteSelected"
+				class="todo__delete-button"
+				title="Удалить выбранные"
+			>
+				Удалить выбранные
+			</button>
+			<div id="message" class="todo__message"></div>
+		</div>
+		<script src="index.js"></script>
+	</body>
 </html>

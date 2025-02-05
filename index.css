@@ -1,70 +1,229 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 body {
-    background-color: rgb(33, 35, 36);
-    font-family: 'Poppins', sans-serif;
+	background-color: #f0f2f5;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 20px;
 }
 
-.header {
-    width: 100%;
-    max-width: 1200px; /* Ширина ограничена до 1200px */
-    margin: 0 auto; /* Центрирование блока */
-    padding: 20px; /* Увеличил отступы для лучшей читаемости на мобильных устройствах */
-    background: #FFFFFF;
-    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
+.todo {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.title {
-    color: rgb(80, 78, 78);
-    font-size: 24px; /* Уменьшил размер шрифта для мобильных устройств */
+.todo:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#inputField {
-    width: 100%;
-    height: 46px;
-    border: 1px solid rgb(14, 68, 68);
-    outline: none;
-    font-size: 18px; /* Уменьшил размер шрифта для мобильных устройств */
-    border-radius: 10px;
-    margin-top: 20px; /* Увеличил отступ сверху для мобильных устройств */
+.todo__title {
+	color: #333333;
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-#addTodo {
-    height: 50px;
-    width: 50px;
-    border: 1px solid rgb(13, 136, 252);
-    font-size: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: rgba(32, 32, 32, 0.795);
-    color: rgba(117, 255, 209, 0.918);
-    margin-top: 20px; /* Увеличил отступ сверху для мобильных устройств */
+.todo__input-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
 }
 
-.to-tos {
-    margin-top: 25px;
+.todo__input {
+	flex-grow: 1;
+	height: 46px;
+	border: 1px solid #dddddd;
+	border-radius: 10px 0 0 10px;
+	padding-left: 15px;
+	font-size: 16px;
+	outline: none;
+	transition: box-shadow 0.3s;
 }
 
-.paragraph-styling {
-    font-size: 20px;
+.todo__input:focus {
+	box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+	border-color: #007bff;
 }
 
-/* Медиа-запрос для мобильных устройств */
+.todo__button {
+	height: 50px;
+	width: 50px;
+	border: none;
+	background-color: #007bff;
+	color: #ffffff;
+	font-size: 24px;
+	border-radius: 0 10px 10px 0;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+	outline: none;
+}
+
+.todo__button:hover {
+	background-color: #0056b3;
+	transform: scale(1.05);
+}
+
+.todo__list {
+	margin-top: 20px;
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden; /* Убираем горизонтальный скролл */
+}
+
+.todo__item {
+	display: flex;
+	align-items: center;
+	background-color: #d4edda;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s, transform 0.3s;
+	word-wrap: break-word; /* Добавляем перенос слов */
+	overflow-wrap: break-word; /* Добавляем перенос слов */
+}
+
+.todo__item:hover {
+	background-color: #c3e6cb;
+	transform: translateX(5px);
+}
+
+.todo__item--completed {
+	text-decoration: line-through;
+	color: #6c757d;
+}
+
+.todo__checkbox {
+	margin-right: 15px;
+}
+
+.todo__delete-button {
+	width: 100%;
+	padding: 10px 0;
+	border: none;
+	background-color: #ff4b5c;
+	color: #ffffff;
+	font-size: 16px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+	outline: none;
+}
+
+.todo__delete-button:hover {
+	background-color: #e60000;
+	transform: scale(1.05);
+}
+
+.todo__message {
+	color: #ff4b5c;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.todo__unmark-button {
+	margin-left: 10px;
+	background: #ffc107;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: background-color 0.3s;
+	outline: none;
+}
+
+.todo__unmark-button:hover {
+	background-color: #e0a800;
+}
+
+.todo__important-button {
+	margin-left: 10px;
+	background: #ffc107;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: background-color 0.3s;
+	outline: none;
+}
+
+.todo__important-button:hover {
+	background-color: #e0a800;
+}
+
+.todo__item--important {
+	background-color: #fff3cd;
+}
+
+.todo__button,
+.todo__delete-button,
+.todo__unmark-button,
+.todo__important-button {
+	position: relative;
+}
+
+.todo__button:hover::after,
+.todo__delete-button:hover::after,
+.todo__unmark-button:hover::after,
+.todo__important-button:hover::after {
+	content: attr(title);
+	position: absolute;
+	background: rgba(0, 0, 0, 0.7);
+	color: #ffffff;
+	padding: 5px;
+	border-radius: 5px;
+	top: -35px;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	pointer-events: none;
+	font-size: 12px;
+	opacity: 1;
+}
+
+.todo__button::after,
+.todo__delete-button::after,
+.todo__unmark-button::after,
+.todo__important-button::after {
+	content: '';
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
 @media (max-width: 767px) {
-    .header {
-        border-radius: 0; /* Убрал скругление углов для мобильных устройств */
-        box-shadow: none; /* Убрал тень для мобильных устройств */
-    }
+	.todo {
+		padding: 15px;
+	}
 
-    .title {
-        font-size: 20px; /* Уменьшил размер шрифта для мобильных устройств */
-    }
+	.todo__title {
+		font-size: 20px;
+	}
 
-    #inputField {
-        font-size: 16px; /* Уменьшил размер шрифта для мобильных устройств */
-    }
+	.todo__input-container {
+		flex-direction: column;
+	}
 
-    #addTodo {
-        font-size: 24px; /* Уменьшил размер шрифта для мобильных устройств */
-    }
+	.todo__input {
+		width: calc(100% - 50px);
+		margin-bottom: 10px;
+		border-radius: 10px;
+	}
+
+	.todo__button {
+		width: 100%;
+		border-radius: 10px;
+	}
+
+	.todo__delete-button {
+		font-size: 14px;
+	}
 }
