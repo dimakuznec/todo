@@ -4,7 +4,7 @@ const inputField = document.getElementById('inputField')
 const deleteSelectedButton = document.getElementById('deleteSelected')
 const message = document.getElementById('message')
 
-addToDoButton.addEventListener('click', function () {
+function addTodo() {
 	if (inputField.value.trim() === '') {
 		message.innerText = 'Пожалуйста, введите задачу.'
 		setTimeout(() => {
@@ -71,6 +71,14 @@ addToDoButton.addEventListener('click', function () {
 			toDoContainer.prepend(todoItem)
 		}
 	})
+}
+
+addToDoButton.addEventListener('click', addTodo)
+
+inputField.addEventListener('keypress', function (event) {
+	if (event.key === 'Enter') {
+		addTodo()
+	}
 })
 
 deleteSelectedButton.addEventListener('click', function () {
