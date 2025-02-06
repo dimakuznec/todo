@@ -5,6 +5,17 @@ const deleteSelectedButton = document.getElementById('deleteSelected')
 const message = document.getElementById('message')
 
 function addTodo() {
+	const currentTime = new Date().toLocaleString()
+	const todoItemTemplate = `
+        <div class="todo__item">
+            <input type="checkbox" class="todo__checkbox" title="Отметить задачу" />
+            <span class="todo__text">${inputField.value}</span>
+            <span class="todo__time">Создано: ${currentTime}</span>
+            <button class="todo__important-button" title="Отметить как важное">★</button>
+            <button class="todo__unmark-button" title="Убрать зачёркивание">⎌</button>
+        </div>
+    `
+
 	if (inputField.value.trim() === '') {
 		message.innerText = 'Пожалуйста, введите задачу.'
 		setTimeout(() => {
@@ -13,36 +24,13 @@ function addTodo() {
 		return
 	}
 
-	let todoItem = document.createElement('div')
-	todoItem.classList.add('todo__item')
-
-	let checkbox = document.createElement('input')
-	checkbox.type = 'checkbox'
-	checkbox.classList.add('todo__checkbox')
-	checkbox.setAttribute('title', 'Отметить задачу')
-
-	let text = document.createElement('span')
-	text.classList.add('todo__text')
-	text.innerText = inputField.value
-
-	let importantButton = document.createElement('button')
-	importantButton.classList.add('todo__important-button')
-	importantButton.innerText = '★'
-	importantButton.setAttribute('title', 'Отметить как важное')
-
-	let unmarkButton = document.createElement('button')
-	unmarkButton.classList.add('todo__unmark-button')
-	unmarkButton.innerText = '⎌'
-	unmarkButton.setAttribute('title', 'Убрать зачёркивание')
-
-	todoItem.appendChild(checkbox)
-	todoItem.appendChild(text)
-	todoItem.appendChild(importantButton)
-	todoItem.appendChild(unmarkButton)
-	toDoContainer.appendChild(todoItem)
-
+	toDoContainer.insertAdjacentHTML('beforeend', todoItemTemplate)
 	inputField.value = ''
 
+	const todoItem = toDoContainer.lastElementChild
+	let text = todoItem.querySelector('.todo__text')
+	let unmarkButton = todoItem.querySelector('.todo__unmark-button')
+	let importantButton = todoItem.querySelector('.todo__important-button')
 	let clickCount = 0
 
 	todoItem.addEventListener('click', function (event) {

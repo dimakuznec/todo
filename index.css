@@ -104,6 +104,44 @@ body {
 	margin-right: 15px;
 }
 
+.todo__time {
+	margin-left: auto;
+	font-size: 12px;
+	color: #888;
+}
+
+.todo__important-button {
+	margin-left: 10px;
+	background: #ffc107;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: background-color 0.3s;
+	outline: none;
+}
+
+.todo__important-button:hover {
+	background-color: #e0a800;
+}
+
+.todo__unmark-button {
+	margin-left: 10px;
+	background: #ffc107;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: background-color 0.3s;
+	outline: none;
+}
+
+.todo__unmark-button:hover {
+	background-color: #e0a800;
+}
+
 .todo__delete-button {
 	width: 100%;
 	padding: 10px 0;
@@ -126,38 +164,6 @@ body {
 	color: #ff4b5c;
 	text-align: center;
 	margin-top: 20px;
-}
-
-.todo__unmark-button {
-	margin-left: 10px;
-	background: #ffc107;
-	color: #ffffff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	padding: 5px 10px;
-	transition: background-color 0.3s;
-	outline: none;
-}
-
-.todo__unmark-button:hover {
-	background-color: #e0a800;
-}
-
-.todo__important-button {
-	margin-left: 10px;
-	background: #ffc107;
-	color: #ffffff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	padding: 5px 10px;
-	transition: background-color 0.3s;
-	outline: none;
-}
-
-.todo__important-button:hover {
-	background-color: #e0a800;
 }
 
 .todo__item--important {
