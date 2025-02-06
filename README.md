@@ -44,7 +44,7 @@
 
 Посмотрите видео с демонстрацией работы приложения:
 
-[Скачать видео](./video/TODO%20List%20-%20GoogleChrome.mp4)
+[Просмотреть видео на Google Drive](https://drive.google.com/file/d/1S-3hx6YKJU67GwpwZlKQDOef62H9gAKN/view?usp=sharing)
 
 ## Как запустить проект
 
