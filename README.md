@@ -44,6 +44,8 @@
 
 Посмотрите видео с демонстрацией работы приложения:
 
+[![Watch the video](https://img.youtube.com/vi/RnMSu3VUTSc/0.jpg)](https://www.youtube.com/watch?v=RnMSu3VUTSc)
+
 [Просмотреть видео на Google Drive](https://drive.google.com/file/d/1S-3hx6YKJU67GwpwZlKQDOef62H9gAKN/view?usp=sharing)
 
 ## Как запустить проект
